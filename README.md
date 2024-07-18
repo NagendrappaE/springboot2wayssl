@@ -46,6 +46,12 @@ IP.1 = 10.10.212.56
 
 ########################################SAN of 10.10.212.56###########################################
 
+########################import public and CA public cert into truststore#############################
+keytool -import  -importcert -alias paycorp -file ca.crt -keystore 127.0.0.1truststore.jks 
+
+keytool -import -trustcacerts -alias paycorp -file ca.crt -keystore 127.0.0.1truststore.jks 
+
+###################################################################################
 
 
 # comand to run the spring boot jar:
