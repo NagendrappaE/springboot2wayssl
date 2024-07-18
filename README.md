@@ -12,6 +12,11 @@ copy the file 10.10.212.56-1.csr inside  myCA/rootCA/csr
 #signing csr by CA
  openssl ca -config ~/myCA/rootCA/openssl.cnf  -in  csr/10.10.212.56-1.csr  -out certs/10.10.212.56-1.crt  -days 2650 -notext -batch
 
+ or
+
+ openssl x509 -req -days 2650 -in 10.10.212.56-2.csr -CA /home/nagendrappae/myCA/rootCA/certs/ca.crt -CAkey /home/nagendrappae/myCA/rootCA/private/ca.key -CAcreateserial -out 10.10.212.56-2.crt -extensions req_ext -extfile san.cnf
+
+
 #######################################SSL domain cert================================================
 [req]
 distinguished_name = req_distinguished_name
